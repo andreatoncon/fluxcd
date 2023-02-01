@@ -13,7 +13,6 @@ spec:
     /*
     # include deploy dir
     !/deploy
-
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
