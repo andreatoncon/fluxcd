@@ -1,27 +1,27 @@
-# apiVersion: source.toolkit.fluxcd.io/v1beta1
-# kind: GitRepository
-# metadata:
-#   name: prometheus
-#   namespace: prometheus
-# spec:
-#   interval: 1m
-#   ref:
-#     branch: main
-#   url: https://github.com/andreatoncon/prometheus.git
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1beta1
-# kind: HelmRelease
-# metadata:
-#   name: prometheus
-#   namespace: prometheus
-# spec:
-#   interval: 1m
-#   chart:
-#     spec:
-#       chart: ./
-#       version: "19.3.1"
-#       sourceRef:
-#         kind: GitRepository
-#         name: prometheus
-#         namespace: prometheus
-#         interval: 1m
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: prometheus
+  namespace: prometheus
+spec:
+  interval: 1m
+  ref:
+    branch: main
+  url: https://github.com/andreatoncon/prometheus.git
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRelease
+metadata:
+  name: prometheus
+  namespace: prometheus
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./
+      version: "19.3.1"
+      sourceRef:
+        kind: GitRepository
+        name: prometheus
+        namespace: prometheus
+        interval: 1m
